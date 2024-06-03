@@ -488,6 +488,10 @@ local plugin_specs = {
       require("config.fidget-nvim")
     end,
   },
+
+  --- copilot plugin
+  { "github/copilot.vim", event = "VeryLazy" },
+
 }
 
 -- configuration for lazy itself.
