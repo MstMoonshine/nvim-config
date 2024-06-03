@@ -566,6 +566,10 @@ local plugin_specs = {
     ft = "lua", -- only load on lua files
     opts = {},
   },
+
+  --- copilot plugin
+  { "github/copilot.vim", event = "VeryLazy" },
+
 }
 
 require("lazy").setup {
