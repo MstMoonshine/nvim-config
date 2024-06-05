@@ -497,7 +497,13 @@ local plugin_specs = {
   },
 
   --- copilot plugin
-  { "github/copilot.vim", event = "VeryLazy" },
+  {
+    "github/copilot.vim",
+    event = "VeryLazy",
+    config = function()
+      require("config.copilot-vim")
+    end,
+  },
 
 }
 
