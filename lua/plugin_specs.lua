@@ -86,6 +86,13 @@ local plugin_specs = {
     ft = { "lisp" },
   },
 
+  --- Rust
+  {
+    "mrcjkb/rustaceanvim",
+    version = "^4",
+    lazy = false,
+  },
+
   -- Super fast buffer jump
   {
     "smoka7/hop.nvim",
