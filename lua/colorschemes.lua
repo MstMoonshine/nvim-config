@@ -79,5 +79,26 @@ M.rand_colorscheme = function()
   end
 end
 
+-- Use a fixed colorscheme
+M.fixed_colorscheme = function()
+  local colorscheme = "sonokai"
+
+  if not vim.tbl_contains(vim.tbl_keys(M.colorscheme_conf), colorscheme) then
+    local msg = "Invalid colorscheme: " .. colorscheme
+    vim.notify(msg, vim.log.levels.ERROR, { title = "nvim-config" })
+
+    return
+  end
+
+  -- Load the colorscheme and its settings
+  M.colorscheme_conf[colorscheme]()
+
+  if vim.g.logging_level == "debug" then
+    local msg = "Colorscheme: " .. colorscheme
+
+    vim.notify(msg, vim.log.levels.DEBUG, { title = "nvim-config" })
+  end
+end
+
 -- Load a random colorscheme
-M.rand_colorscheme()
+M.fixed_colorscheme()
