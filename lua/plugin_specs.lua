@@ -505,6 +505,16 @@ local plugin_specs = {
     end,
   },
 
+  --- toggleterm plugin
+  {
+    "akinsho/toggleterm.nvim",
+    event = "VeryLazy",
+    version = "*",
+    config = function()
+      require("config.toggleterm")
+    end,
+  },
+
 }
 
 -- configuration for lazy itself.
