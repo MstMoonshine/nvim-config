@@ -187,7 +187,36 @@ local plugin_specs = {
       require("config.indent-blankline")
     end,
   },
-
+  {
+    "luukvbaal/statuscol.nvim",
+    opts = {},
+    config = function()
+      local builtin = require("statuscol.builtin")
+      require("statuscol").setup {
+        relculright = true,
+        segments = {
+          { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
+          { text = { "%s" }, click = "v:lua.ScSa" },
+          { text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
+        },
+      }
+    end,
+  },
+  {
+    "kevinhwang91/nvim-ufo",
+    dependencies = "kevinhwang91/promise-async",
+    event = "VeryLazy",
+    opts = {},
+    init = function()
+      vim.o.foldcolumn = "1" -- '0' is not bad
+      vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+      vim.o.foldlevelstart = 99
+      vim.o.foldenable = true
+    end,
+    config = function()
+      require("config.nvim_ufo")
+    end,
+  },
   -- Highlight URLs inside vim
   { "itchyny/vim-highlighturl", event = "VeryLazy" },
 
@@ -449,7 +478,7 @@ local plugin_specs = {
       -- local prologue = "echo"
       local cmd_str = string.format(":call firenvim#install(0, '%s')", prologue)
       vim.cmd(cmd_str)
-    end
+    end,
   },
   -- Debugger plugin
   {
@@ -544,6 +573,6 @@ require("lazy").setup {
     title_pos = "center",
   },
   rocks = {
-    enabled = false
+    enabled = false,
   },
 }
