@@ -561,6 +561,11 @@ local plugin_specs = {
     end,
   },
 
+  {
+    "folke/lazydev.nvim",
+    ft = "lua", -- only load on lua files
+    opts = {},
+  },
 }
 
 require("lazy").setup {
