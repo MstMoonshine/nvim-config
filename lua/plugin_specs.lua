@@ -163,7 +163,7 @@ local plugin_specs = {
     event = "VeryLazy",
     cond = firenvim_not_active,
     config = function()
-      require("config.statusline")
+      require("config.lualine")
     end,
   },
 
